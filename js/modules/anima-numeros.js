@@ -1,6 +1,4 @@
 export default function initAnimaNumeros() {
-
-
   function animaNumeros() {
     const numeros = document.querySelectorAll('[data-numero]');
 
@@ -10,7 +8,7 @@ export default function initAnimaNumeros() {
 
       let start = 0;
       const timer = setInterval(() => {
-        start = start + incremento;
+        start += incremento;
         numero.innerText = start;
         if (start > total) {
           numero.innerText = total;
@@ -18,8 +16,9 @@ export default function initAnimaNumeros() {
         }
       }, 25 * Math.random());
     });
-
   }
+
+  let observer;
 
   function handleMutation(mutation) {
     if (mutation[0].target.classList.contains('ativo')) {
@@ -29,7 +28,7 @@ export default function initAnimaNumeros() {
   }
 
   const observerTarget = document.querySelector('.numeros');
-  const observer = new MutationObserver(handleMutation);
+  observer = new MutationObserver(handleMutation);
 
   observer.observe(observerTarget, { attributes: true });
 }
