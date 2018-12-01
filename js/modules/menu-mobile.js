@@ -23,7 +23,7 @@ export default class MenuMobile {
   }
 
   addMenuMobileEvents() {
-    this.menuButton.addEventListener(evento, this.openMenu);
+    this.menuButton.addEventListener(this.events, this.openMenu);
   }
 
   init() {
